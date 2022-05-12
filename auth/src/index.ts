@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { app } from './app';
 
 const start = async () => {
-  console.log("hi hi hi hi");
+  console.log("hi hi");
   
   console.log("starting app in branch");
   console.log("adsggdaw");
