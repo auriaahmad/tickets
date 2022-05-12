@@ -15,7 +15,7 @@ spec:
       containers:
         - name: payments
           image: auriaahmad/payments
-          imagePullPolicy: Never
+       
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
