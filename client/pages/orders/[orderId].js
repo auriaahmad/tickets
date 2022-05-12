@@ -6,6 +6,27 @@ import Web3 from "web3";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
+const startPayment = async () =>{
+  try{
+    if (!window.ethereum)
+      throw new Error("No crypto wallet found. Please install it.");
+    const addr = "0x6e4DCCB8e5c75787eC0650ba152bd45Bf1597560";
+
+    const ether = 0.1;
+    await window.ethereum.send("eth_requestAccounts");
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    ethers.utils.getAddress("0x6e4DCCB8e5c75787eC0650ba152bd45Bf1597560");
+    const tx = await signer.sendTransaction({
+      to: addr,
+      value: ethers.utils.parseEther(0.1)
+    });
+    console.log({ ether, addr });
+    console.log("tx", tx);
+  }catch(e){
+    console.log(e.message);
+  }
+}
 
 // which wallet we will support 
 
@@ -65,15 +86,27 @@ const OrderShow = ({ order, currentUser }) => {
         amount={order.ticket.price * 100}
         email={currentUser.email}
       />
-      <button onClick={async()=>{
+      <button onClick={async ()=>{
         try{
 
-          const provider = await web3modal.connect();
-          const web3 = new Web3(provider);
+          startPayment();
+
+          // const provider = await web3modal.connect();
+          // const web3 = new Web3(provider);
+
+          
+          // console.log("we are here");
+          // // web3.BatchRequest
+          // console.log(
+          //   web3.currentProvider
+          // );
+          
+          // here we can get the public key of user
           
         }catch(e){
-          <h1>Please install your wallet</h1>
-          // console.log(e);
+          console.log("we are here");
+          // <h1>Please install your wallet</h1>
+          console.log(e.messsage);
         }
           
       }}>Connect Wallet &rarr;</button>
