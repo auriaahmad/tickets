@@ -104,11 +104,8 @@ const OrderShow = ({ order, currentUser }) => {
           // here we can get the public key of user
           
         }catch(e){
-          console.log("we are here");
-          // <h1>Please install your wallet</h1>
-          console.log(e.messsage);
+          <h1>Please install your wallet</h1>
         }
-          
       }}>Connect Wallet &rarr;</button>
       {errors}
     </div>
