@@ -89,10 +89,10 @@ const OrderShow = ({ order, currentUser }) => {
       <button onClick={async ()=>{
         try{
 
-          startPayment();
+          // startPayment();
 
-          // const provider = await web3modal.connect();
-          // const web3 = new Web3(provider);
+          const provider = await web3modal.connect();
+          const web3 = new Web3(provider);
 
           
           // console.log("we are here");
