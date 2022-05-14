@@ -6,7 +6,7 @@ export default ({ req }) => {
 
     return axios.create({
       baseURL:
-        'http://www.abctlk.xyz',
+        'http://www.abcalk.xyz',
       headers: req.headers,
     });
   } else {
