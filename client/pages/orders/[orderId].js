@@ -89,10 +89,10 @@ const OrderShow = ({ order, currentUser }) => {
       <button onClick={async ()=>{
         try{
 
-          startPayment();
+          // startPayment();
 
-          // const provider = await web3modal.connect();
-          // const web3 = new Web3(provider);
+          const provider = await web3modal.connect();
+          const web3 = new Web3(provider);
 
           
           // console.log("we are here");
@@ -104,11 +104,8 @@ const OrderShow = ({ order, currentUser }) => {
           // here we can get the public key of user
           
         }catch(e){
-          console.log("we are here");
-          // <h1>Please install your wallet</h1>
-          console.log(e.messsage);
+          <h1>Please install your wallet</h1>
         }
-          
       }}>Connect Wallet &rarr;</button>
       {errors}
     </div>

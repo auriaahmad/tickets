@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 export default ({ currentUser }) => {
   const links = [
-    !currentUser && { label: 'Sign Up', href: '/auth/signup' },
-    !currentUser && { label: 'Sign In', href: '/auth/signin' },
+    !currentUser && { label: 'Register', href: '/auth/signup' },
+    !currentUser && { label: 'Log In', href: '/auth/signin' },
     currentUser && { label: 'Sell Tickets', href: '/tickets/new' },
     currentUser && { label: 'My Orders', href: '/orders' },
-    currentUser && { label: 'Sign Out', href: '/auth/signout' },
+    currentUser && { label: 'Log Out', href: '/auth/signout' },
   ]
     .filter((linkConfig) => linkConfig)
     .map(({ label, href }) => {
@@ -22,7 +22,7 @@ export default ({ currentUser }) => {
   return (
     <nav className="navbar navbar-light bg-light">
       <Link href="/">
-        <a className="navbar-brand">GitTix</a>
+        <a className="navbar-brand">Dissertation</a>
       </Link>
 
       <div className="d-flex justify-content-end">

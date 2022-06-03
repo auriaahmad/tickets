@@ -1,11 +1,12 @@
-name: deploy-client
+name: deploy-orders
 
 on:
   push:
     branches:
-      - main
+      - master
     paths:
-      - 'client/**'
+      - 'orders/**'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -16,10 +17,10 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: cd client && docker build -t auriaahmad/ticketing-client .
-      - run: docker push auriaahmad/ticketing-client
+      - run: cd orders && docker build -t auriaahmad/orders .
+      - run: docker push auriaahmad/orders
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save ticketing
-      - run: kubectl rollout restart deployment client-depl
+      - run: kubectl rollout restart deployment orders-depl

@@ -15,7 +15,7 @@ spec:
       containers:
         - name: client
           image: auriaahmad/client
-          imagePullPolicy: Never
+         
          
 ---
 apiVersion: v1

@@ -3,9 +3,10 @@ name: deploy-tickets
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'tickets/**'
+  workflow_dispatch:
 
 jobs:
   build:

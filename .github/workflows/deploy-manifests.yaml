@@ -3,9 +3,10 @@ name: deploy-manifests
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'infra/**'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -17,3 +18,4 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save ticketing
       - run: kubectl apply -f infra/k8s && kubectl apply -f infra/k8s-prod
+      
